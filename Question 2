@@ -1,0 +1,32 @@
+# Direct-mapped cache simulation
+
+cache_lines = 8
+cache = [None] * cache_lines
+
+memory_blocks = [3, 11, 3, 19, 11, 27, 3]
+
+hits = 0
+misses = 0
+
+print("Block\tCache Line\tStatus\tCache Contents")
+
+for block in memory_blocks:
+    line = block % cache_lines
+
+    if cache[line] == block:
+        status = "HIT"
+        hits += 1
+    else:
+        status = "MISS"
+        misses += 1
+        cache[line] = block
+
+    print(block, "\t", line, "\t\t", status, "\t", cache)
+
+total_accesses = len(memory_blocks)
+hit_ratio = hits / total_accesses
+
+print("\nTotal Hits:", hits)
+print("Total Misses:", misses)
+print("Hit Ratio:", hit_ratio)
+print("Hit Ratio (%):", hit_ratio * 100, "%")
