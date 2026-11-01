@@ -1,0 +1,23 @@
+# Initialize memory and registers
+memory = {100: 12, 104: 8}
+R1 = R2 = R3 = 0
+
+# Instruction a: LOAD R1, 100
+print("Instruction: LOAD R1, 100")
+R1 = memory[100]
+print("R1 =", R1)
+
+# Instruction b: LOAD R2, 104
+print("\nInstruction: LOAD R2, 104")
+R2 = memory[104]
+print("R2 =", R2)
+
+# Instruction c: ADD R3, R1, R2
+print("\nInstruction: ADD R3, R1, R2")
+R3 = R1 + R2
+print("R1 =", R1, "R2 =", R2, "R3 =", R3)
+
+# Instruction d: STORE R3, 108
+print("\nInstruction: STORE R3, 108")
+memory[108] = R3
+print("Memory[108] =", memory[108])
